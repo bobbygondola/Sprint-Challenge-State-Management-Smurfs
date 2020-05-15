@@ -10,7 +10,8 @@ const SmurfForm = props => {
         age:'',
         height:'',
     })
-    const onChange = e => setSmurf({
+    const onChange = (e) => 
+    setSmurf({
         ...smurf,
         [e.target.name]: e.target.value
     })
@@ -29,10 +30,11 @@ const SmurfForm = props => {
         <div className="formDiv">
             <form onSubmit={onSubmit} className="form">
                 <h2>Add a Smurf!</h2>
-                <input type="text" placeholder="Smurfy Name" value={smurf.name} onChange={onChange} />
-                <input type="number" placeholder="Smurfy Age" value={smurf.age} onChange={onChange} />
-                <input type="text" placeholder="Smurfy Height" value={smurf.height} onChange={onChange}/>
+                <input type="text" name="name" placeholder="Smurfy Name" value={smurf.name} onChange={onChange} />
+                <input type="number" name="age" placeholder="Smurfy Age" value={smurf.age} onChange={onChange} />
+                <input type="text" name="height" placeholder="Smurfy Height" value={smurf.height} onChange={onChange}/>
                 <button type = 'submit'>Submit</button>
+                <button>SHOW ME MY SMURFS</button>
             </form>
             
         </div>

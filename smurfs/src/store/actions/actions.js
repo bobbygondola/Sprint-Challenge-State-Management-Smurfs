@@ -16,7 +16,13 @@ axios
   };
 };
 
-export const addSmurfs = (smurf) => {
+export const addSmurfs = smurf => (dispatch) => {
+    dispatch({ type: "ADD_SMURFS" })
+    axios
+    .post("http://localhost:3333/smurfs", smurf)
+    .then((res) => {
+        console.log(res)
+    })
     return {
         type: ADD_SMURFS,
         payload: smurf
