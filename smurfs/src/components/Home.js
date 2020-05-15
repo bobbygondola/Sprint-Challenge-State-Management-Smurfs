@@ -4,30 +4,26 @@ import { fetchSmurf } from "../store/actions/actions"
 import Card from "../components/Card"
 
 const Home = props => {
-
-    console.log('props.data', props.data)
-    useEffect(() => {
-        props.fetchSmurf();
-    }, []);
-    
-    return (
-        <div>
-            {props.data.map(smurf => {
-                return(
-                    <div>
-                        <Card smurf={smurf}/>
-                    </div>
-                )
-            })}
-        </div>
-        
-    )
-}
+  useEffect(() => {
+    props.fetchSmurf();
+  }, []);
+  
+  return (
+      <div>
+        {props.smurfs && props.smurfs.map(smurf => {
+            return (
+            <Card smurf={smurf} key={smurf.id}/>
+            )
+        })}
+      </div>
+  )
+};
 
 const mapStateToProps = (state) => {
-    console.log('mSTP state log', {state})
+    console.log('mSTP state log', state)
     return {
-        data: state.data
+        smurfs: state.smurfs,
+        isFetching: state.isFetching
     }
 }
 

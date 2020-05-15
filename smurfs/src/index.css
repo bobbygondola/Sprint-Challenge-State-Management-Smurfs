@@ -4,3 +4,17 @@ body {
   font-family: sans-serif;
   background-color: lightblue;
 }
+.card{
+  border: 1px solid black;
+  width: 30%;
+  margin: 0 auto;
+  background-image: linear-gradient(lightcyan, darkcyan);
+  margin-top: 5%;
+  border-radius: 100px;
+}
+.form{
+display: flex;
+background-color: lightblue;
+margin-top: 4%;
+margin-left: 24%;
+}

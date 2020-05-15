@@ -2,11 +2,10 @@ import React from 'react'
 
 const Card = props => {
     return (
-        <div>
-            <h2>{props.smurf.name}</h2>
-    <p>{props.smurf.age}</p>
-    <p>{props.smurf.height}</p>
-    <p>{props.smurf.id}</p>
+        <div className="card" key={props.smurf.id}>
+            <h2>{props.smurf.name} Smurf!</h2>
+        <p>{props.smurf.height}</p>
+        <p>{props.smurf.age} Years Old</p>
         </div>
     )
 }

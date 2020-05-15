@@ -1,17 +1,28 @@
-import { FETCH_SMURF_START } from '../actions/actions'
+import { FETCH_SMURF_START, ADD_SMURFS } from '../actions/actions'
+
 
 
 export const initialState = {
-    data: ''
+    smurfs: [],
+    isFetching: false
 }
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_SMURF_START:
             return {
                 ...state,
-                data: action.payload
+                isFetching: true,
+                smurfs: action.payload
             }
-            default: 
-            return state;
+            case ADD_SMURFS: 
+            return{
+                ...state,
+                smurfs: [...state.smurfs, {
+                    name: action.payload.name,
+                    age: action.payload.age,
+                    height: action.payload.height
+                }]
+            }
+            default: return state;
     }
 }
